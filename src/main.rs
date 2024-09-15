@@ -1,6 +1,7 @@
 mod string_function;
 fn main() {
-    string_function::string_function();
+    let name = String::from("hello");
+    string_function::string_function(&name);
     println!("Hello, world!");
     let num = 24;
     println!("{}", is_even(&num));
