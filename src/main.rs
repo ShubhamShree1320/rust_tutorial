@@ -1,6 +1,7 @@
 mod enum_method;
 mod string_function;
 mod struct_method;
+use std::fs::read_to_string;
 fn main() {
     let rect_var = struct_method::Rect {
         width: 10,
@@ -18,7 +19,12 @@ fn main() {
         "fibonacci number for target = {} is = {}",
         num,
         fibonacci(&num)
-    )
+    );
+    let result_txt = read_to_string("src/my_file.txt");
+    match result_txt {
+        Ok(content) => println!("{}", content),
+        Err(error) => println!("{}", error),
+    };
 }
 fn fibonacci(target: &i8) -> i32 {
     let mut first = 0;
