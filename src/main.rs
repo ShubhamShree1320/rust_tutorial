@@ -1,6 +1,7 @@
 mod string_function;
 fn main() {
     string_function::string_function();
+    println!("Hello, world!");
     let num = 20;
     println!("{}", is_even(&num));
     println!("{}", num);
