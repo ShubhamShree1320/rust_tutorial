@@ -1,3 +1,4 @@
+mod enum_method;
 mod string_function;
 mod struct_method;
 fn main() {
@@ -6,6 +7,8 @@ fn main() {
         height: 20,
     };
     println!("the area of rectangle is = {}", rect_var.area());
+    let shape = enum_method::Shape::Square(10.0);
+    println!("the area of shape is = {}", shape.area());
     let name = String::from("hello");
     string_function::string_function(&name);
     println!("Hello, world!");
