@@ -1,6 +1,8 @@
 mod enum_method;
 mod string_function;
 mod struct_method;
+mod vector_method;
+use std::collections::HashMap;
 use std::fs::read_to_string;
 fn main() {
     let rect_var = struct_method::Rect {
@@ -25,6 +27,46 @@ fn main() {
         Ok(content) => println!("{}", content),
         Err(error) => println!("{}", error),
     };
+    /*      I am going to write a vector function that takes vector as input and reurns vector with
+     *      even values    */
+    let mut vec1 = Vec::new();
+    for i in 1..10 {
+        vec1.push(i);
+    }
+    let vec2 = get_even(&vec1);
+    println!("{:?}", vec2);
+    /*I am going to implement hashmap*/
+
+    let mut hm = HashMap::new();
+    hm.insert("Shubham", 1);
+    hm.insert("Rishabh", 2);
+    hm.insert("Lav", 3);
+
+    let value_required = hm.get("Shubham");
+    match value_required {
+        Some(x) => println!("{}", x),
+        None => println!("Not found"),
+    }
+
+    let vec1 = vec![1, 2, 3, 4, 5];
+    let vec2: Vec<i32> = vec1
+        .iter()
+        .filter(|x| *x % 2 != 0)
+        .map(|x| *x * *x)
+        .collect();
+    for i in vec2 {
+        println!("{}", i);
+    }
+}
+
+fn get_even(vec: &Vec<i8>) -> Vec<i8> {
+    let mut vec2 = Vec::new();
+    for i in vec {
+        if i % 2 == 0 {
+            vec2.push(*i);
+        }
+    }
+    return vec2;
 }
 fn fibonacci(target: &i8) -> i32 {
     let mut first = 0;
